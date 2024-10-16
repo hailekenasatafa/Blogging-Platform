@@ -5,6 +5,8 @@ from rest_framework.permissions import IsAuthenticated
 
 class BlogPostViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
+    queryset = BlogPost.objects.select_related('author', 'category')
+
 
 class BlogPostViewSet(viewsets.ModelViewSet):
     queryset = BlogPost.objects.all()
